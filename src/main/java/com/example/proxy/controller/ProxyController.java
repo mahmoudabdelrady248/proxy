@@ -12,7 +12,6 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/proxy")
 public class ProxyController {
     private final WebClient webClient;
 
@@ -20,7 +19,7 @@ public class ProxyController {
         this.webClient = webClient;
     }
 
-    @RequestMapping
+    @RequestMapping("/proxy")
     public Mono<ResponseEntity<?>> proxy(ServerHttpRequest request) {
         List<String> targetUrl = request.getQueryParams().get("url");
 
